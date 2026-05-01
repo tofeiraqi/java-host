@@ -255,9 +255,10 @@ function order(){
 
   let phone = "9647822383148";
   let msg = "مرحبا 👋 اريد الاشتراك في الاستضافة";
-  let url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(msg);
 
-  window.open(url, "_blank"); // 🔥 الحل النهائي
+  let url = "https://api.whatsapp.com/send?phone=" + phone + "&text=" + encodeURIComponent(msg);
+
+  window.open(url, "_blank"); // يفتح واتساب بشكل مضمون
 }
 </script>
 
