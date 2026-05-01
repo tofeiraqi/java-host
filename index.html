@@ -130,7 +130,7 @@ header * {
   cursor: pointer;
 }
 
-/* زر واتساب */
+/* 🔥 زر واتساب احترافي */
 .whatsapp-btn {
   position: fixed;
   bottom: 20px;
@@ -144,14 +144,10 @@ header * {
   justify-content: center;
   cursor: pointer;
   box-shadow: 0 0 20px rgba(0,0,0,0.4);
-  transition: 0.3s;
+
+  animation: pulseWhats 2s infinite, shake 3s infinite;
 }
 
-.whatsapp-btn:hover {
-  transform: scale(1.1);
-}
-
-/* أيقونة داخل الزر */
 .whatsapp-btn img {
   width: 35px;
 }
@@ -180,6 +176,24 @@ footer {
   0% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
   100% { transform: translateY(0); }
+}
+
+/* 🔥 نبض */
+@keyframes pulseWhats {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+  70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* 🔥 اهتزاز */
+@keyframes shake {
+  0% { transform: translate(0,0); }
+  10% { transform: translate(-2px, 2px); }
+  20% { transform: translate(2px, -2px); }
+  30% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -2px); }
+  50% { transform: translate(0,0); }
+  100% { transform: translate(0,0); }
 }
 
 /* موبايل */
@@ -258,7 +272,7 @@ function order(){
 
   let url = "https://api.whatsapp.com/send?phone=" + phone + "&text=" + encodeURIComponent(msg);
 
-  window.open(url, "_blank"); // يفتح واتساب بشكل مضمون
+  window.open(url, "_blank");
 }
 </script>
 
