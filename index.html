@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>جافا هوست</title>
+<link rel="icon" type="image/png" href="favicon.png">
 
 <style>
 body {
@@ -76,7 +77,6 @@ header * {
   text-align: center;
   width: 320px;
   box-shadow: 0 0 30px rgba(0,0,0,0.6);
-  transition: 0.4s;
 }
 
 .price {
@@ -130,22 +130,30 @@ header * {
   cursor: pointer;
 }
 
-/* زر واتساب ثابت */
+/* زر واتساب */
 .whatsapp-btn {
   position: fixed;
   bottom: 20px;
   right: 20px;
   background: #25D366;
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 30px;
-  color: white;
   cursor: pointer;
   box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  transition: 0.3s;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.1);
+}
+
+/* أيقونة داخل الزر */
+.whatsapp-btn img {
+  width: 35px;
 }
 
 /* الفوتر */
@@ -174,23 +182,12 @@ footer {
   100% { transform: translateY(0); }
 }
 
-/* 🔥 تحسين الموبايل */
+/* موبايل */
 @media (max-width: 768px) {
-  .main-title {
-    font-size: 34px;
-  }
-
-  .subtitle {
-    font-size: 16px;
-  }
-
-  .card {
-    width: 90%;
-  }
-
-  .rules ul {
-    font-size: 16px;
-  }
+  .main-title { font-size: 34px; }
+  .subtitle { font-size: 16px; }
+  .card { width: 90%; }
+  .rules ul { font-size: 16px; }
 }
 </style>
 
@@ -239,7 +236,7 @@ footer {
 
 <!-- زر واتساب -->
 <div class="whatsapp-btn" onclick="order()">
-  ☎
+  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
 </div>
 
 <script>
@@ -260,7 +257,7 @@ function order(){
   let msg = "مرحبا 👋 اريد الاشتراك في الاستضافة";
   let url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(msg);
 
-  window.location.href = url; // 🔥 حل مشكلة الموبايل
+  window.open(url, "_blank"); // 🔥 الحل النهائي
 }
 </script>
 
