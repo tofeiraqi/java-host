@@ -2,8 +2,8 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>جافا هوست</title>
-<link rel="icon" type="image/png" href="favicon.png">
 
 <style>
 body {
@@ -17,13 +17,12 @@ body {
 header {
   background: url('banner.jpg') no-repeat center/cover;
   height: 380px;
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   flex-direction: column;
-  overflow: hidden;
+  position: relative;
 }
 
 header::after {
@@ -34,7 +33,6 @@ header::after {
   background: rgba(0,0,0,0.7);
 }
 
-/* انيميشن دخول */
 header * {
   position: relative;
   z-index: 2;
@@ -43,13 +41,9 @@ header * {
 
 /* اللوجو */
 .logo {
-  width: 100px;
+  width: 110px;
   filter: drop-shadow(0 0 15px orange);
   animation: floatLogo 3s ease-in-out infinite;
-}
-
-.logo:hover {
-  transform: scale(1.1);
 }
 
 /* العنوان */
@@ -63,7 +57,7 @@ header * {
 
 /* النص */
 .subtitle {
-  font-size: 18px;
+  font-size: 20px;
   color: #ddd;
 }
 
@@ -71,7 +65,7 @@ header * {
 .services {
   display: flex;
   justify-content: center;
-  padding: 50px;
+  padding: 50px 20px;
 }
 
 .card {
@@ -80,37 +74,25 @@ header * {
   padding: 30px;
   border-radius: 20px;
   text-align: center;
-  width: 300px;
+  width: 320px;
   box-shadow: 0 0 30px rgba(0,0,0,0.6);
   transition: 0.4s;
-  animation: fadeUp 1.5s ease;
-}
-
-.card:hover {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 0 40px rgba(34,197,94,0.4);
 }
 
 .price {
   color: #22c55e;
   font-size: 24px;
-  margin: 10px 0;
 }
 
-/* زر */
+/* زر الطلب */
 .order-btn {
   background: linear-gradient(90deg, #22c55e, #16a34a);
   border: none;
-  padding: 12px;
+  padding: 14px;
   color: white;
   border-radius: 10px;
   cursor: pointer;
-  transition: 0.3s;
-}
-
-.order-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 15px #22c55e;
+  margin-top: 10px;
 }
 
 /* القوانين */
@@ -119,31 +101,21 @@ header * {
 }
 
 .rules-box {
-  max-width: 800px;
+  max-width: 900px;
   margin: auto;
   background: rgba(30, 41, 59, 0.7);
   backdrop-filter: blur(10px);
-  padding: 30px;
+  padding: 35px;
   border-radius: 20px;
   box-shadow: 0 0 30px rgba(0,0,0,0.5);
 
   opacity: 0;
   transform: translateY(40px);
   animation: fadeIn 1.5s ease forwards;
-  animation-delay: 0.5s;
-}
-
-.rules h2 {
-  text-align: center;
 }
 
 .rules ul {
-  line-height: 2;
-}
-
-.alert {
-  text-align: center;
-  color: #22c55e;
+  line-height: 2.2;
   font-size: 18px;
 }
 
@@ -152,11 +124,28 @@ header * {
   display: block;
   margin: 20px auto;
   background: #22c55e;
-  padding: 12px;
+  padding: 14px;
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  animation: pulse 2s infinite;
+}
+
+/* زر واتساب ثابت */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
 
 /* الفوتر */
@@ -185,10 +174,23 @@ footer {
   100% { transform: translateY(0); }
 }
 
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.7); }
-  70% { box-shadow: 0 0 0 15px rgba(34,197,94,0); }
-  100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+/* 🔥 تحسين الموبايل */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 34px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  .rules ul {
+    font-size: 16px;
+  }
 }
 </style>
 
@@ -197,15 +199,9 @@ footer {
 <body>
 
 <header>
-
   <img src="logo.png" class="logo">
-
   <h1 class="main-title">جافا هوست</h1>
-
-  <p class="subtitle">
-    استضافة وتأجير الشات الكتابي والصوتي
-  </p>
-
+  <p class="subtitle">استضافة وتأجير الشات الكتابي والصوتي</p>
 </header>
 
 <section class="services">
@@ -219,10 +215,9 @@ footer {
 
 <section class="rules">
   <div class="rules-box">
+    <p style="text-align:center;color:#22c55e;">⚠️ يرجى قراءة القوانين</p>
 
-    <p class="alert">⚠️ يرجى قراءة القوانين قبل الاشتراك</p>
-
-    <h2>📜 القوانين</h2>
+    <h2 style="text-align:center;">📜 القوانين</h2>
 
     <ul>
       <li>لا يوجد FTP أو CPanel</li>
@@ -235,13 +230,17 @@ footer {
     </ul>
 
     <button class="agree-btn" onclick="agreeRules()">✔ أوافق على الشروط</button>
-
   </div>
 </section>
 
 <footer>
-  <p>📞 تواصل عبر واتساب</p>
+  <p>© 2026 جافا هوست</p>
 </footer>
+
+<!-- زر واتساب -->
+<div class="whatsapp-btn" onclick="order()">
+  ☎
+</div>
 
 <script>
 let agreed = false;
@@ -260,7 +259,8 @@ function order(){
   let phone = "9647822383148";
   let msg = "مرحبا 👋 اريد الاشتراك في الاستضافة";
   let url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(msg);
-  window.open(url);
+
+  window.location.href = url; // 🔥 حل مشكلة الموبايل
 }
 </script>
 
