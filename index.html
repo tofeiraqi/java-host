@@ -1,27 +1,29 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
 <title>جافا هوست</title>
+<link rel="icon" type="image/png" href="favicon.png">
 
 <style>
 body {
-  font-family: Arial;
+  font-family: "Segoe UI", Arial;
   margin: 0;
-  background: #0f172a;
+  background: linear-gradient(135deg, #020617, #0f172a);
   color: white;
 }
 
 /* الهيدر */
 header {
   background: url('banner.jpg') no-repeat center/cover;
-  height: 350px;
+  height: 380px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   flex-direction: column;
+  overflow: hidden;
 }
 
 header::after {
@@ -29,106 +31,102 @@ header::after {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.7);
 }
 
+/* انيميشن دخول */
 header * {
   position: relative;
   z-index: 2;
-}
-
-/* العنوان الأول */
-.top-title {
-  font-size: 38px;
-  color: #aaa;
-  margin-bottom: 10px;
-  animation: fadeOutTop 3s forwards;
+  animation: fadeUp 1.2s ease;
 }
 
 /* اللوجو */
-.logo-box {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
-  opacity: 0;
-  animation: fadeInMain 2s ease forwards;
-  animation-delay: 2.5s;
-}
-
 .logo {
-  width: 90px;
-  height: auto;
-  filter: drop-shadow(0 0 10px orange);
+  width: 100px;
+  filter: drop-shadow(0 0 15px orange);
   animation: floatLogo 3s ease-in-out infinite;
 }
 
 .logo:hover {
   transform: scale(1.1);
-  transition: 0.3s;
 }
 
-/* العنوان الرئيسي */
+/* العنوان */
 .main-title {
-  margin: 5px 0;
-  font-size: 38px;
-  opacity: 0;
-  animation: fadeInMain 2s ease forwards;
-  animation-delay: 2.5s;
+  font-size: 48px;
+  margin: 10px 0;
+  background: linear-gradient(90deg, #22c55e, #4ade80);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* الوصف */
+/* النص */
 .subtitle {
-  margin-top: 5px;
-  color: #ccc;
   font-size: 18px;
-  opacity: 0;
-  animation: fadeInMain 2s ease forwards;
-  animation-delay: 2.5s;
+  color: #ddd;
 }
 
 /* الخدمات */
 .services {
   display: flex;
   justify-content: center;
-  padding: 30px;
+  padding: 50px;
 }
 
 .card {
-  background: #1e293b;
-  padding: 25px;
-  border-radius: 15px;
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 20px;
   text-align: center;
-  width: 280px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  width: 300px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.6);
+  transition: 0.4s;
+  animation: fadeUp 1.5s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 0 40px rgba(34,197,94,0.4);
 }
 
 .price {
   color: #22c55e;
-  font-size: 22px;
+  font-size: 24px;
+  margin: 10px 0;
 }
 
+/* زر */
 .order-btn {
-  background: #22c55e;
+  background: linear-gradient(90deg, #22c55e, #16a34a);
   border: none;
-  padding: 10px;
+  padding: 12px;
   color: white;
-  border-radius: 6px;
+  border-radius: 10px;
   cursor: pointer;
   transition: 0.3s;
 }
 
 .order-btn:hover {
   transform: scale(1.1);
-  background: #16a34a;
+  box-shadow: 0 0 15px #22c55e;
 }
 
 /* القوانين */
 .rules {
-  padding: 50px 20px;
-  background: #020617;
+  padding: 60px 20px;
 }
 
 .rules-box {
+  max-width: 800px;
+  margin: auto;
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+
   opacity: 0;
   transform: translateY(40px);
   animation: fadeIn 1.5s ease forwards;
@@ -154,48 +152,43 @@ header * {
   display: block;
   margin: 20px auto;
   background: #22c55e;
-  color: white;
-  border: none;
   padding: 12px;
-  border-radius: 8px;
+  border-radius: 10px;
+  border: none;
   cursor: pointer;
   animation: pulse 2s infinite;
-}
-
-/* انيميشن */
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.7); }
-  70% { box-shadow: 0 0 0 10px rgba(34,197,94,0); }
-  100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
-}
-
-@keyframes fadeIn {
-  from {opacity:0; transform:translateY(30px);}
-  to {opacity:1; transform:translateY(0);}
-}
-
-@keyframes floatLogo {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
-}
-
-/* اختفاء العنوان الأول */
-@keyframes fadeOutTop {
-  0% { opacity: 1; transform: translateY(0); }
-  100% { opacity: 0; transform: translateY(-20px); }
-}
-
-/* ظهور الباقي */
-@keyframes fadeInMain {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
 }
 
 /* الفوتر */
 footer {
   text-align: center;
   padding: 20px;
+  color: #aaa;
+}
+
+/* انيميشن */
+@keyframes fadeUp {
+  from {opacity:0; transform:translateY(30px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatLogo {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(34,197,94,0); }
+  100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
 }
 </style>
 
@@ -205,18 +198,10 @@ footer {
 
 <header>
 
-  <!-- العنوان الأول -->
-  <h1 class="top-title">جافا هوست</h1>
+  <img src="logo.png" class="logo">
 
-  <!-- اللوجو -->
-  <div class="logo-box">
-    <img src="logo.png" class="logo">
-  </div>
-
-  <!-- العنوان الثاني -->
   <h1 class="main-title">جافا هوست</h1>
 
-  <!-- الوصف -->
   <p class="subtitle">
     استضافة وتأجير الشات الكتابي والصوتي
   </p>
